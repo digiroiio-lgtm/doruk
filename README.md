@@ -13,4 +13,4 @@ This repository contains a clickable, multi-page web prototype for **DORUK AI** 
 - Reports and Settings panels
 - 25 realistic player data points used across interactive views
 
-Open `/home/runner/work/doruk/doruk/index.html` in a browser to explore the prototype.
+Open `index.html` in a browser to explore the prototype.

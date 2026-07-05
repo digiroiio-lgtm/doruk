@@ -49,13 +49,31 @@ const names = [
   "Heung-min Son", "Mohamed Salah", "Virgil van Dijk", "Rodri Hernández", "Kevin De Bruyne"
 ];
 
+const READINESS_BASE = 78;
+const READINESS_MIN = 62;
+const READINESS_MAX = 96;
+const INJURY_RISK_MIN = 6;
+const INJURY_RISK_MAX = 49;
+const SLEEP_BASELINE = 7.8;
+const READINESS_GAP_BASE = 85;
+const LOAD_DIFF_DIVISOR = 18;
+
 const players = names.map((name, i) => {
   const acute = 520 + i * 7;
   const chronic = 580 + i * 5;
   const sleep = 6.4 + (i % 5) * 0.35;
   const hrv = 55 + (i % 8) * 3;
-  const readiness = Math.max(62, Math.min(96, Math.round(78 + sleep * 2 - (acute - chronic) / 18)));
-  const injuryRisk = Math.max(6, Math.min(49, Math.round((acute / chronic) * 20 + (7.8 - sleep) * 5 + (85 - readiness) / 2)));
+  const readiness = Math.max(
+    READINESS_MIN,
+    Math.min(READINESS_MAX, Math.round(READINESS_BASE + sleep * 2 - (acute - chronic) / LOAD_DIFF_DIVISOR))
+  );
+  const injuryRisk = Math.max(
+    INJURY_RISK_MIN,
+    Math.min(
+      INJURY_RISK_MAX,
+      Math.round((acute / chronic) * 20 + (SLEEP_BASELINE - sleep) * 5 + (READINESS_GAP_BASE - readiness) / 2)
+    )
+  );
   return {
     name,
     position: ["GK", "RB", "CB", "LB", "DM", "CM", "AM", "RW", "LW", "ST"][i % 10],
