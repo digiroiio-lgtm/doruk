@@ -7,6 +7,7 @@ AI-powered Human Performance Intelligence Platform for elite sports organization
 This repository contains a clickable, multi-page web prototype for **DORUK AI** with:
 
 - Enterprise landing page and architecture narrative
+- Brand direction tuned for Nike-style performance energy, Palantir intelligence, Apple simplicity, and Formula 1 telemetry aesthetics
 - Technical Staff Dashboard with dynamic KPI/charts
 - Player Profile, Training Load planner, Wellness/Medical views
 - AI Injury Risk and explainability screen

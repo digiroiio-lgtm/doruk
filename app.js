@@ -25,7 +25,16 @@ const aiEngineCards = [
   ["Feature Engineering", "Build reliable acute/chronic load, HRV, sleep and wellness indicators."],
   ["Prediction Engine", "Continuously score readiness, fatigue and return-to-play trajectories."],
   ["RAG Knowledge Base", "Ground AI suggestions in clinical protocols and club operating procedures."],
-  ["Cloud Infrastructure", "Securely orchestrate ingest, model serving and role-based analytics at scale."]
+  ["Cloud Infrastructure", "Securely orchestrate data ingestion, model serving and role-based analytics at scale."]
+];
+
+const dorukCompanyArchitecture = [
+  ["DORUK AI", "Human Performance Intelligence"],
+  ["DORUK Medical", "Sports Medicine Platform"],
+  ["DORUK Vision", "Computer Vision & Video Analytics"],
+  ["DORUK Scout", "AI Talent Intelligence"],
+  ["DORUK Labs", "Research & AI"],
+  ["DORUK Cloud", "Data Platform"]
 ];
 
 const reportTitles = [
@@ -142,6 +151,15 @@ function renderArchitecture() {
       arrow.textContent = "→";
       flow.appendChild(arrow);
     }
+  });
+}
+
+function renderCompanyArchitecture() {
+  const container = document.getElementById("company-architecture");
+  dorukCompanyArchitecture.forEach(([title, detail]) => {
+    const card = document.createElement("article");
+    card.innerHTML = `<h4>${title}</h4><p>${detail}</p>`;
+    container.appendChild(card);
   });
 }
 
@@ -350,8 +368,8 @@ function renderAICards() {
 function renderRiskPanel() {
   const riskPanel = document.getElementById("risk-panel");
   const highestRiskPlayer = players.reduce(
-    (highestRiskPlayer, currentPlayer) =>
-      currentPlayer.injuryRisk > highestRiskPlayer.injuryRisk ? currentPlayer : highestRiskPlayer,
+    (maxRiskPlayer, currentPlayer) =>
+      currentPlayer.injuryRisk > maxRiskPlayer.injuryRisk ? currentPlayer : maxRiskPlayer,
     players[0]
   );
   const items = [
@@ -378,6 +396,25 @@ function renderRiskPanel() {
   riskPanel.appendChild(explain);
 }
 
+function animateHeroCounters() {
+  const targets = [
+    ["hero-readiness", Number(document.getElementById("hero-readiness").textContent.replace("%", "")), "%"],
+    ["hero-risk", Number(document.getElementById("hero-risk").textContent.replace("%", "")), "%"],
+    ["hero-availability", Number(document.getElementById("hero-availability").textContent.replace("%", "")), "%"]
+  ];
+  targets.forEach(([id, target, suffix]) => {
+    const element = document.getElementById(id);
+    let current = 0;
+    const step = Math.max(1, Math.round(target / 24));
+    const tick = () => {
+      current = Math.min(target, current + step);
+      element.textContent = `${current}${suffix}`;
+      if (current < target) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+}
+
 function renderReports() {
   const reports = document.getElementById("report-cards");
   reportTitles.forEach((title) => {
@@ -400,6 +437,7 @@ function renderRoles() {
 renderNav(topNav, "top");
 renderNav(sidebar, "side");
 renderArchitecture();
+renderCompanyArchitecture();
 renderKPIs();
 renderHeatmap();
 renderAlerts();
@@ -415,4 +453,5 @@ renderRoles();
 drawChart("weekly-load", [660, 710, 680, 740, 770, 705, 630], "#38e4ff");
 drawChart("recovery-trend", [69, 73, 75, 78, 81, 80, 83], "#36e7a7");
 drawBars("training-distribution", [34, 22, 18, 15, 11], ["#2f7bff", "#38e4ff", "#36e7a7", "#ffbd4a", "#8a97c5"]);
+animateHeroCounters();
 activatePage("home");
