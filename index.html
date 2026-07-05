@@ -23,25 +23,73 @@
 
   <main>
     <section class="page active" id="home">
+      <div class="bg-word" aria-hidden="true">DORUK</div>
       <div class="hero glass">
         <div>
           <p class="eyebrow" lang="tr">Türkiye'nin Yapay Zekâ Destekli Sporcu Performans Platformu</p>
-          <h2>İnsan Performansı.<br>Yapay Zekâ ile Şekillendi.</h2>
-          <p>Veriyi Avantaja Dönüştür.</p>
+          <h2>İnsan Performansı.<br><span class="text-accent">Yapay Zekâ ile Şekillendi.</span></h2>
+          <p class="hero-tagline">Veriyi Avantaja Dönüştür.</p>
           <div class="actions">
             <button class="primary">Demo Talep Et</button>
             <button class="secondary">Platformu İncele</button>
           </div>
         </div>
         <div class="hero-visual glass" aria-hidden="true">
-          <div class="athlete-focus">Elit Odak</div>
           <div class="signal-grid"></div>
+          <svg class="perf-radar" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="rg" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="rgba(204,255,47,0.12)"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </radialGradient>
+            </defs>
+            <circle cx="110" cy="110" r="98" fill="url(#rg)" stroke="rgba(204,255,47,0.06)" stroke-width="1"/>
+            <circle cx="110" cy="110" r="75" stroke="rgba(204,255,47,0.10)" stroke-width="1" fill="none"/>
+            <circle cx="110" cy="110" r="52" stroke="rgba(204,255,47,0.15)" stroke-width="1" fill="none"/>
+            <circle cx="110" cy="110" r="29" stroke="rgba(204,255,47,0.22)" stroke-width="1" fill="none"/>
+            <line x1="110" y1="12" x2="110" y2="208" stroke="rgba(204,255,47,0.07)" stroke-width="0.5"/>
+            <line x1="12" y1="110" x2="208" y2="110" stroke="rgba(204,255,47,0.07)" stroke-width="0.5"/>
+            <line x1="40" y1="40" x2="180" y2="180" stroke="rgba(204,255,47,0.05)" stroke-width="0.5"/>
+            <line x1="180" y1="40" x2="40" y2="180" stroke="rgba(204,255,47,0.05)" stroke-width="0.5"/>
+            <polygon points="110,36 170,74 167,158 70,164 44,88 80,38" fill="rgba(204,255,47,0.09)" stroke="rgba(204,255,47,0.5)" stroke-width="1.5"/>
+            <line class="radar-sweep-line" x1="110" y1="110" x2="110" y2="14" stroke="rgba(204,255,47,0.75)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <svg class="runner-svg" viewBox="0 0 130 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="athleteGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <g filter="url(#athleteGlow)">
+              <ellipse cx="88" cy="22" rx="15" ry="15" fill="rgba(204,255,47,0.9)"/>
+              <path d="M 85 37 Q 76 60 65 92" stroke="rgba(204,255,47,0.9)" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <path d="M 78 55 L 50 40 L 38 54" stroke="rgba(204,255,47,0.9)" stroke-width="7" stroke-linecap="round" fill="none"/>
+              <path d="M 78 60 L 100 78 L 110 66" stroke="rgba(204,255,47,0.7)" stroke-width="6" stroke-linecap="round" fill="none"/>
+              <path d="M 65 92 Q 55 130 38 162 L 28 168" stroke="rgba(204,255,47,0.9)" stroke-width="9" stroke-linecap="round" fill="none"/>
+              <path d="M 65 92 Q 78 125 88 162 L 82 170" stroke="rgba(204,255,47,0.7)" stroke-width="8" stroke-linecap="round" fill="none"/>
+            </g>
+          </svg>
+          <div class="hud-tag hud-1"><span class="hud-dot"></span>HRV 68ms ↑</div>
+          <div class="hud-tag hud-2"><span class="hud-dot ok"></span>32.4 km/h</div>
+          <div class="hud-tag hud-3"><span class="hud-dot"></span>LOAD 724</div>
+          <div class="athlete-focus">Elit Odak</div>
         </div>
         <div class="hero-kpis">
           <article class="glass"><h3>Takım Hazırlığı</h3><strong id="hero-readiness">89%</strong></article>
           <article class="glass"><h3>Sakatlık Riski</h3><strong id="hero-risk">12%</strong></article>
           <article class="glass"><h3>Uygunluk</h3><strong id="hero-availability">92%</strong></article>
         </div>
+      </div>
+
+      <div class="metrics-ribbon glass">
+        <div class="metric-item"><strong>500+</strong><span>Sporcu</span></div>
+        <div class="metric-sep"></div>
+        <div class="metric-item"><strong>25+</strong><span>Kulüp</span></div>
+        <div class="metric-sep"></div>
+        <div class="metric-item"><strong>99.9%</strong><span>Uptime</span></div>
+        <div class="metric-sep"></div>
+        <div class="metric-item"><strong>7/24</strong><span>İzleme</span></div>
       </div>
 
       <section class="trusted glass">
