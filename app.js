@@ -11,7 +11,7 @@ const pages = [
 
 const architecture = [
   "Garmin API", "WHOOP API", "Polar", "Catapult Export", "Apple Health", "Google Fit", "Blood Tests",
-  "Sleep", "Nutrition", "Training Load", "AI ENGINE", "Risk Intelligence", "Performance Intelligence",
+  "Sleep", "Nutrition", "Training Load", "AI Engine", "Risk Intelligence", "Performance Intelligence",
   "Readiness Score", "Turkish Dashboard", "Club Doctor", "Performance Department", "Head Coach"
 ];
 
@@ -67,6 +67,8 @@ const LOAD_DIFF_DIVISOR = 18;
 const RECOVERY_DECIMAL_FACTOR = 10;
 // AI recommendation keeps 85% of current acute load for high-risk profiles.
 const RECOMMENDED_LOAD_REDUCTION_FACTOR = 0.85;
+// Injury-risk threshold above which recovery-first recommendations are shown.
+const RECOVERY_RECOMMENDATION_THRESHOLD = 28;
 
 const players = names.map((name, i) => {
   const acute = 520 + i * 7;
@@ -228,12 +230,13 @@ function renderHeatmap() {
 
 function renderAlerts() {
   const alerts = document.getElementById("alerts");
+  const loadReductionPercent = Math.round((1 - RECOMMENDED_LOAD_REDUCTION_FACTOR) * 100);
   players
     .filter((player) => player.injuryRisk > 30)
     .slice(0, 5)
     .forEach((player) => {
       const item = document.createElement("li");
-      item.textContent = `${player.name}: high fatigue (${player.fatigueRisk}%) — recommended load reduction 18%.`;
+      item.textContent = `${player.name}: high fatigue (${player.fatigueRisk}%) — recommended load reduction ${loadReductionPercent}%.`;
       alerts.appendChild(item);
     });
 }
@@ -255,7 +258,7 @@ function renderPlayerProfile(index = 0) {
     ["Current Readiness", `${player.readiness}%`],
     ["AI Risk Score", `${player.injuryRisk}%`],
     ["Performance Trend", player.readiness > 80 ? "Positive progression" : "Needs recovery intervention"],
-    ["Weekly Recommendation", player.injuryRisk > 28 ? "Recovery + controlled technical sessions" : "Sprint + strength progression"],
+    ["Weekly Recommendation", player.injuryRisk > RECOVERY_RECOMMENDATION_THRESHOLD ? "Recovery + controlled technical sessions" : "Sprint + strength progression"],
   ];
 
   profile.innerHTML = "";
@@ -346,7 +349,11 @@ function renderAICards() {
 
 function renderRiskPanel() {
   const riskPanel = document.getElementById("risk-panel");
-  const player = [...players].sort((a, b) => b.injuryRisk - a.injuryRisk)[0];
+  const player = players.reduce(
+    (highestRiskPlayer, currentPlayer) =>
+      currentPlayer.injuryRisk > highestRiskPlayer.injuryRisk ? currentPlayer : highestRiskPlayer,
+    players[0]
+  );
   const items = [
     ["Injury Risk", `${player.injuryRisk}%`, player.injuryRisk > 30 ? "red" : "yellow"],
     ["Fatigue Risk", `${player.fatigueRisk}%`, player.fatigueRisk > 35 ? "red" : "yellow"],
