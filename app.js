@@ -49,14 +49,24 @@ const names = [
   "Heung-min Son", "Mohamed Salah", "Virgil van Dijk", "Rodri Hernández", "Kevin De Bruyne"
 ];
 
+// Baseline readiness score before sleep/load adjustments.
 const READINESS_BASE = 78;
+// Clamp readiness output to a realistic squad range.
 const READINESS_MIN = 62;
 const READINESS_MAX = 96;
+// Clamp injury risk output to a realistic demo range.
 const INJURY_RISK_MIN = 6;
 const INJURY_RISK_MAX = 49;
+// Baseline target sleep duration (hours) used in risk scoring.
 const SLEEP_BASELINE = 7.8;
+// Readiness gap anchor used to increase risk when readiness falls.
 const READINESS_GAP_BASE = 85;
+// Normalizes acute/chronic load difference impact.
 const LOAD_DIFF_DIVISOR = 18;
+// Maintains one decimal place when calculating displayed recovery hours.
+const RECOVERY_DECIMAL_FACTOR = 10;
+// AI recommendation keeps 85% of current acute load for high-risk profiles.
+const RECOMMENDED_LOAD_REDUCTION_FACTOR = 0.85;
 
 const players = names.map((name, i) => {
   const acute = 520 + i * 7;
@@ -137,7 +147,9 @@ function renderKPIs() {
   const avgRisk = Math.round(players.reduce((s, p) => s + p.injuryRisk, 0) / players.length);
   const avgLoad = Math.round(players.reduce((s, p) => s + p.acuteLoad, 0) / players.length);
   const avgAvailability = Math.round(players.reduce((s, p) => s + p.availability, 0) / players.length);
-  const avgRecovery = Math.round(players.reduce((s, p) => s + Number(p.sleep), 0) / players.length * 10);
+  const avgRecovery = Math.round(
+    (players.reduce((s, p) => s + Number(p.sleep), 0) / players.length) * RECOVERY_DECIMAL_FACTOR
+  );
 
   document.getElementById("hero-readiness").textContent = `${avgReadiness}%`;
   document.getElementById("hero-risk").textContent = `${avgRisk}%`;
@@ -148,7 +160,7 @@ function renderKPIs() {
     ["Average Risk", `${avgRisk}%`, "Injury risk score (rolling 7 days)"],
     ["Training Load", `${avgLoad}`, "Acute load total from wearable + field sessions"],
     ["Availability", `${avgAvailability}%`, "Projected 7-day player availability"],
-    ["Recovery", `${avgRecovery / 10}h`, "Average sleep and HRV-adjusted recovery"],
+    ["Recovery", `${avgRecovery / RECOVERY_DECIMAL_FACTOR}h`, "Average sleep and HRV-adjusted recovery"],
   ];
 
   const kpiGrid = document.getElementById("kpi-grid");
@@ -334,14 +346,14 @@ function renderAICards() {
 
 function renderRiskPanel() {
   const riskPanel = document.getElementById("risk-panel");
-  const player = players.sort((a, b) => b.injuryRisk - a.injuryRisk)[0];
+  const player = [...players].sort((a, b) => b.injuryRisk - a.injuryRisk)[0];
   const items = [
     ["Injury Risk", `${player.injuryRisk}%`, player.injuryRisk > 30 ? "red" : "yellow"],
     ["Fatigue Risk", `${player.fatigueRisk}%`, player.fatigueRisk > 35 ? "red" : "yellow"],
     ["Overtraining Risk", `${player.overtrainingRisk}%`, player.overtrainingRisk > 30 ? "yellow" : "green"],
     ["Availability Prediction", `${player.availability}%`, player.availability > 80 ? "green" : "yellow"],
     ["Recovery Score", `${player.readiness}%`, player.readiness > 78 ? "green" : "yellow"],
-    ["Recommended Training Load", `${Math.round(player.acuteLoad * 0.85)} AU`, "yellow"],
+    ["Recommended Training Load", `${Math.round(player.acuteLoad * RECOMMENDED_LOAD_REDUCTION_FACTOR)} AU`, "yellow"],
   ];
 
   items.forEach(([name, value, color]) => {
