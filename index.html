@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DORUK AI | Human Performance Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar glass">
+    <div class="brand">
+      <span class="logo-dot"></span>
+      <div>
+        <h1>DORUK AI</h1>
+        <p>Human Performance Intelligence Platform</p>
+      </div>
+    </div>
+    <nav id="top-nav" class="top-nav" aria-label="Primary navigation"></nav>
+  </header>
+
+  <main>
+    <section class="page active" id="home">
+      <div class="hero glass">
+        <div>
+          <p class="eyebrow">Türkiye'nin İnsan Performansı İşletim Sistemi</p>
+          <h2>Every Data Point.<br>One Decision.</h2>
+          <p>AI-powered athlete intelligence platform that transforms training, recovery and medical data into actionable performance insights.</p>
+          <div class="actions">
+            <button class="primary">Request Demo</button>
+            <button class="secondary">Watch Platform</button>
+          </div>
+        </div>
+        <div class="hero-kpis">
+          <article class="glass"><h3>Team Readiness</h3><strong id="hero-readiness">89%</strong></article>
+          <article class="glass"><h3>Injury Risk</h3><strong id="hero-risk">12%</strong></article>
+          <article class="glass"><h3>Availability</h3><strong id="hero-availability">92%</strong></article>
+        </div>
+      </div>
+
+      <section class="trusted glass">
+        <h3>Trusted By</h3>
+        <div class="logo-grid">
+          <span>Professional Football Clubs</span>
+          <span>Basketball</span>
+          <span>Volleyball</span>
+          <span>Olympic Teams</span>
+          <span>Military</span>
+        </div>
+      </section>
+
+      <section class="architecture glass">
+        <h3>Platform Architecture</h3>
+        <div class="flow" id="architecture-flow"></div>
+      </section>
+
+      <section class="cta glass">
+        <p>“AI will not replace your coaching staff. It will empower every decision they make.”</p>
+        <button class="primary">Book Demo</button>
+      </section>
+
+      <section class="roadmap glass">
+        <h3>Future Roadmap</h3>
+        <div class="roadmap-grid">
+          <article><h4>Phase 1</h4><p>Elite Football</p></article>
+          <article><h4>Phase 2</h4><p>Basketball · Volleyball · Olympic Sports</p></article>
+          <article><h4>Phase 3</h4><p>Military · Police · Fire Department · Corporate Health · Occupational Performance</p></article>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="dashboard">
+      <div class="layout">
+        <aside class="sidebar glass" id="sidebar"></aside>
+        <div class="content">
+          <div class="kpi-grid" id="kpi-grid"></div>
+          <div class="charts-grid">
+            <article class="glass"><h3>Weekly Load</h3><canvas id="weekly-load" width="500" height="220"></canvas></article>
+            <article class="glass"><h3>Recovery Trend</h3><canvas id="recovery-trend" width="500" height="220"></canvas></article>
+            <article class="glass"><h3>Risk Heatmap</h3><div id="risk-heatmap" class="heatmap"></div></article>
+            <article class="glass"><h3>Training Distribution</h3><canvas id="training-distribution" width="500" height="220"></canvas></article>
+          </div>
+          <article class="glass"><h3>Today's Alerts</h3><ul id="alerts"></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="players">
+      <article class="glass">
+        <h3>Player Profile</h3>
+        <label for="player-select">Select Player</label>
+        <select id="player-select"></select>
+        <div id="player-profile" class="player-grid"></div>
+      </article>
+    </section>
+
+    <section class="page" id="training">
+      <article class="glass">
+        <h3>Weekly Planner</h3>
+        <p>Drag sessions between days. AI recommendations are highlighted.</p>
+        <div id="planner" class="planner"></div>
+      </article>
+    </section>
+
+    <section class="page" id="medical">
+      <article class="glass">
+        <h3>Medical Dashboard</h3>
+        <div class="cards" id="medical-cards"></div>
+      </article>
+    </section>
+
+    <section class="page" id="ai-predictions">
+      <article class="glass">
+        <h3>AI Engine</h3>
+        <div class="cards" id="ai-engine-cards"></div>
+      </article>
+      <article class="glass">
+        <h3>AI Risk Screen</h3>
+        <div class="risk-panel" id="risk-panel"></div>
+      </article>
+    </section>
+
+    <section class="page" id="reports">
+      <article class="glass">
+        <h3>Reports</h3>
+        <div class="cards" id="report-cards"></div>
+      </article>
+    </section>
+
+    <section class="page" id="settings">
+      <article class="glass settings">
+        <h3>Settings</h3>
+        <label><span>Organization</span><input value="DORUK AI Demo Club" /></label>
+        <label><span>Default Language</span><select><option>Türkçe</option><option>English</option></select></label>
+        <label><span>Notification Policy</span><select><option>Real-time medical alerts</option><option>Daily digest</option></select></label>
+        <label><span>Data Sources</span><input value="Garmin, WHOOP, Polar, Apple Health, Google Fit" /></label>
+        <button class="primary">Save Configuration</button>
+      </article>
+      <article class="glass">
+        <h3>Technical Staff Panel</h3>
+        <div class="roles" id="roles"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
