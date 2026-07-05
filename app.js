@@ -1,53 +1,53 @@
 const pages = [
-  { id: "home", label: "Overview" },
-  { id: "dashboard", label: "Technical Staff Dashboard" },
-  { id: "players", label: "Player Profile" },
-  { id: "training", label: "Training Load" },
-  { id: "medical", label: "Medical Dashboard" },
-  { id: "ai-predictions", label: "AI Injury Risk Score" },
-  { id: "reports", label: "Reports" },
-  { id: "settings", label: "Settings" }
+  { id: "home", label: "Genel Bakış" },
+  { id: "dashboard", label: "Teknik Kadro Kontrol Paneli" },
+  { id: "players", label: "Sporcu Profili" },
+  { id: "training", label: "Antrenman Yükü" },
+  { id: "medical", label: "Medikal Kontrol Paneli" },
+  { id: "ai-predictions", label: "YZ Sakatlık Risk Skoru" },
+  { id: "reports", label: "Raporlar" },
+  { id: "settings", label: "Ayarlar" }
 ];
 
 const architecture = [
-  "Garmin API", "WHOOP API", "Polar", "Catapult Export", "Apple Health", "Google Fit", "Blood Tests",
-  "Sleep", "Nutrition", "Training Load", "AI Engine", "Risk Intelligence", "Performance Intelligence",
-  "Readiness Score", "Turkish Dashboard", "Club Doctor", "Performance Department", "Head Coach"
+  "Garmin API", "WHOOP API", "Polar", "Catapult Dışa Aktarım", "Apple Health", "Google Fit", "Kan Testleri",
+  "Uyku", "Beslenme", "Antrenman Yükü", "YZ Motoru", "Risk Zekâsı", "Performans Zekâsı",
+  "Hazırlık Skoru", "Türkçe Kontrol Paneli", "Kulüp Doktoru", "Performans Departmanı", "Baş Antrenör"
 ];
 
 const aiEngineCards = [
-  ["Large Language Models", "Turn multi-source athlete notes and coaching context into searchable intelligence."],
-  ["Time Series Analysis", "Model daily and weekly workload/recovery trends for proactive planning."],
-  ["Anomaly Detection", "Flag unusual biomarker and readiness changes before visible performance drops."],
-  ["XGBoost", "Deliver robust tabular risk prediction for injury and availability outcomes."],
-  ["LightGBM", "Run fast, high-performance gradient boosting for squad-level recommendation scenarios."],
-  ["Transformer Models", "Capture long-range temporal dependencies in training and medical histories."],
-  ["Feature Engineering", "Build reliable acute/chronic load, HRV, sleep and wellness indicators."],
-  ["Prediction Engine", "Continuously score readiness, fatigue and return-to-play trajectories."],
-  ["RAG Knowledge Base", "Ground AI suggestions in clinical protocols and club operating procedures."],
-  ["Cloud Infrastructure", "Securely orchestrate data ingestion, model serving and role-based analytics at scale."]
+  ["Büyük Dil Modelleri", "Çok kaynaklı sporcu notlarını ve antrenman bağlamını aranabilir zekâya dönüştür."],
+  ["Zaman Serisi Analizi", "Proaktif planlama için günlük ve haftalık yük/toparlanma eğilimlerini modelle."],
+  ["Anomali Tespiti", "Görünür performans düşüşlerinden önce olağandışı biyobelirteç ve hazırlık değişimlerini işaretle."],
+  ["XGBoost", "Sakatlık ve uygunluk sonuçları için güçlü tablo tabanlı risk tahmini sun."],
+  ["LightGBM", "Kadro düzeyinde öneri senaryoları için hızlı, yüksek performanslı gradyan artırma çalıştır."],
+  ["Transformer Modeller", "Antrenman ve medikal geçmişlerdeki uzun menzilli zamansal bağımlılıkları yakala."],
+  ["Özellik Mühendisliği", "Güvenilir akut/kronik yük, KHA, uyku ve esenlik göstergeleri oluştur."],
+  ["Tahmin Motoru", "Hazırlık, yorgunluk ve oyuna dönüş trajektörlerini sürekli puanla."],
+  ["RAG Bilgi Tabanı", "YZ önerilerini klinik protokoller ve kulüp işletim prosedürlerine dayandır."],
+  ["Bulut Altyapısı", "Veri alımı, model sunumu ve rol tabanlı analizleri güvenli şekilde ölçekte yönet."]
 ];
 
 const dorukCompanyArchitecture = [
-  ["DORUK AI", "Human Performance Intelligence"],
-  ["DORUK Medical", "Sports Medicine Platform"],
-  ["DORUK Vision", "Computer Vision & Video Analytics"],
-  ["DORUK Scout", "AI Talent Intelligence"],
-  ["DORUK Labs", "Research & AI"],
-  ["DORUK Cloud", "Data Platform"]
+  ["DORUK AI", "İnsan Performansı Zekâsı"],
+  ["DORUK Medical", "Spor Hekimliği Platformu"],
+  ["DORUK Vision", "Bilgisayarlı Görü & Video Analitiği"],
+  ["DORUK Scout", "YZ Yetenek Zekâsı"],
+  ["DORUK Labs", "Araştırma & Yapay Zekâ"],
+  ["DORUK Cloud", "Veri Platformu"]
 ];
 
 const reportTitles = [
-  "Weekly Readiness Report", "Monthly Performance Report", "Season Availability Analysis",
-  "Injury Summary", "Load Summary", "Readiness Report", "Performance Report"
+  "Haftalık Hazırlık Raporu", "Aylık Performans Raporu", "Sezon Uygunluk Analizi",
+  "Sakatlık Özeti", "Yük Özeti", "Hazırlık Raporu", "Performans Raporu"
 ];
 
 const staffRoles = [
-  ["Sports Scientist", "Training load progression, readiness confidence and sprint exposure panels."],
-  ["Physiotherapist", "Recovery markers, treatment adherence and return-to-play predictors."],
-  ["Club Doctor", "Medical risk intelligence, blood biomarker deltas and injury surveillance."],
-  ["Head Coach", "Availability forecast, tactical workload alignment and weekly recommendation overview."],
-  ["Sporting Director", "Squad durability KPIs, investment protection and season-long availability reports."]
+  ["Spor Bilimcisi", "Antrenman yükü progresyonu, hazırlık güveni ve sprint maruziyet panelleri."],
+  ["Fizyoterapist", "Toparlanma belirteçleri, tedavi uyumu ve oyuna dönüş tahminleri."],
+  ["Kulüp Doktoru", "Medikal risk zekâsı, kan biyobelirteç deltaları ve sakatlık gözetimi."],
+  ["Baş Antrenör", "Uygunluk tahmini, taktiksel yük uyumu ve haftalık öneri genel bakışı."],
+  ["Sportif Direktör", "Kadro dayanıklılık KPI'ları, yatırım koruma ve sezon uzunluğu uygunluk raporları."]
 ];
 
 const names = [
@@ -177,11 +177,11 @@ function renderKPIs() {
   document.getElementById("hero-availability").textContent = `${avgAvailability}%`;
 
   const kpis = [
-    ["Team Readiness", `${avgReadiness}%`, "AI readiness confidence across the squad"],
-    ["Average Risk", `${avgRisk}%`, "Injury risk score (rolling 7 days)"],
-    ["Training Load", `${avgLoad}`, "Acute load total from wearable + field sessions"],
-    ["Availability", `${avgAvailability}%`, "Projected 7-day player availability"],
-    ["Recovery", `${avgRecovery / RECOVERY_DECIMAL_FACTOR}h`, "Average sleep and HRV-adjusted recovery"],
+    ["Takım Hazırlığı", `${avgReadiness}%`, "Kadroda YZ hazırlık güveni"],
+    ["Ortalama Risk", `${avgRisk}%`, "Sakatlık risk skoru (sürekli 7 gün)"],
+    ["Antrenman Yükü", `${avgLoad}`, "Giyilebilir + saha seanslarından akut yük toplamı"],
+    ["Uygunluk", `${avgAvailability}%`, "7 günlük oyuncu uygunluk tahmini"],
+    ["Toparlanma", `${avgRecovery / RECOVERY_DECIMAL_FACTOR}s`, "Ortalama uyku ve KHA ayarlı toparlanma"],
   ];
 
   const kpiGrid = document.getElementById("kpi-grid");
@@ -254,7 +254,7 @@ function renderAlerts() {
     .slice(0, 5)
     .forEach((player) => {
       const item = document.createElement("li");
-      item.textContent = `${player.name}: high fatigue (${player.fatigueRisk}%) — recommended load reduction ${LOAD_REDUCTION_PERCENT}%.`;
+      item.textContent = `${player.name}: yüksek yorgunluk (%${player.fatigueRisk}) — önerilen yük azaltımı %${LOAD_REDUCTION_PERCENT}.`;
       alerts.appendChild(item);
     });
 }
@@ -263,20 +263,20 @@ function renderPlayerProfile(index = 0) {
   const player = players[index];
   const profile = document.getElementById("player-profile");
   const data = [
-    ["Personal Information", `${player.name} · ${player.position} · ${player.age}`],
-    ["Training History", `Acute ${player.acuteLoad} / Chronic ${player.chronicLoad}`],
-    ["Recovery", `${player.sleep}h sleep · HRV ${player.hrv}`],
-    ["Wellness", `${player.wellness}/100 self-reported index`],
-    ["Medical History", `Previous injury factor: ${Math.round(player.injuryRisk / 7)} points`],
-    ["GPS", `${player.gpsDistance.toFixed(1)} km average session distance`],
-    ["Heart Rate", `${player.heartRate} bpm resting average`],
-    ["Sleep", `${player.sleep}h nightly average`],
-    ["Blood Biomarkers", `${player.biomarkers}/100 inflammation & recovery panel`],
-    ["Psychological Score", `${Math.round((player.wellness + player.readiness) / 2)}/100`],
-    ["Current Readiness", `${player.readiness}%`],
-    ["AI Risk Score", `${player.injuryRisk}%`],
-    ["Performance Trend", player.readiness > 80 ? "Positive progression" : "Needs recovery intervention"],
-    ["Weekly Recommendation", player.injuryRisk > RECOVERY_RECOMMENDATION_THRESHOLD ? "Recovery + controlled technical sessions" : "Sprint + strength progression"],
+    ["Kişisel Bilgiler", `${player.name} · ${player.position} · ${player.age}`],
+    ["Antrenman Geçmişi", `Akut ${player.acuteLoad} / Kronik ${player.chronicLoad}`],
+    ["Toparlanma", `${player.sleep} saat uyku · KHA ${player.hrv}`],
+    ["Esenlik", `${player.wellness}/100 kendi bildirimi indeksi`],
+    ["Tıbbi Geçmiş", `Önceki sakatlık faktörü: ${Math.round(player.injuryRisk / 7)} puan`],
+    ["GPS", `${player.gpsDistance.toFixed(1)} km ortalama seans mesafesi`],
+    ["Kalp Hızı", `${player.heartRate} atım/dk istirahat ortalaması`],
+    ["Uyku", `${player.sleep} saat gecelik ortalama`],
+    ["Kan Biyobelirteçleri", `${player.biomarkers}/100 iltihaplanma & toparlanma paneli`],
+    ["Psikolojik Skor", `${Math.round((player.wellness + player.readiness) / 2)}/100`],
+    ["Mevcut Hazırlık", `${player.readiness}%`],
+    ["YZ Risk Skoru", `${player.injuryRisk}%`],
+    ["Performans Eğilimi", player.readiness > 80 ? "Pozitif ilerleme" : "Toparlanma müdahalesi gerekli"],
+    ["Haftalık Öneri", player.injuryRisk > RECOVERY_RECOMMENDATION_THRESHOLD ? "Toparlanma + kontrollü teknik seanslar" : "Sprint + kuvvet progresyonu"],
   ];
 
   profile.innerHTML = "";
@@ -299,15 +299,15 @@ function renderPlayerSelect() {
 }
 
 function renderPlanner() {
-  const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  const days = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"];
   const sessions = {
-    Monday: ["Sprint Session", "Strength"],
-    Tuesday: ["Technical"],
-    Wednesday: ["Recovery Day"],
-    Thursday: ["Sprint Session", "Technical"],
-    Friday: ["Strength"],
-    Saturday: ["Rest"],
-    Sunday: ["Recovery Day"],
+    Pazartesi: ["Sprint Seansı", "Kuvvet"],
+    Salı: ["Teknik"],
+    Çarşamba: ["Toparlanma Günü"],
+    Perşembe: ["Sprint Seansı", "Teknik"],
+    Cuma: ["Kuvvet"],
+    Cumartesi: ["Dinlenme"],
+    Pazar: ["Toparlanma Günü"],
   };
 
   const planner = document.getElementById("planner");
@@ -329,8 +329,8 @@ function renderPlanner() {
       item.id = `${day}-${idx}`;
       item.className = "session";
       item.draggable = true;
-      if (session.includes("Recovery")) item.classList.add("recovery");
-      if (session.includes("Rest")) item.classList.add("rest");
+      if (session.includes("Toparlanma")) item.classList.add("recovery");
+      if (session.includes("Dinlenme")) item.classList.add("rest");
       item.textContent = session;
       item.addEventListener("dragstart", (e) => {
         e.dataTransfer.setData("text/plain", item.id);
@@ -345,10 +345,10 @@ function renderMedicalCards() {
   const cards = document.getElementById("medical-cards");
   const avgHr = Math.round(players.reduce((s, p) => s + p.heartRate, 0) / players.length);
   [
-    ["Wellness Questionnaire", "Daily subjective wellness questionnaire completion: 96%"],
-    ["HR Monitoring", `Squad resting heart rate average: ${avgHr} bpm`],
-    ["Blood Tests", "Flagged biomarker deviations: 3 players under review"],
-    ["Recovery Compliance", "Recovery protocol adherence: 88% (last 7 days)"]
+    ["Esenlik Anketi", "Günlük öznel esenlik anketi tamamlama: %96"],
+    ["KH İzleme", `Kadro istirahat kalp hızı ortalaması: ${avgHr} atım/dk`],
+    ["Kan Testleri", "İşaretlenen biyobelirteç sapmaları: 3 sporcu incelemede"],
+    ["Toparlanma Uyumu", "Toparlanma protokol uyumu: %88 (son 7 gün)"]
   ].forEach(([title, text]) => {
     const article = document.createElement("article");
     article.innerHTML = `<h4>${title}</h4><p>${text}</p>`;
@@ -373,26 +373,28 @@ function renderRiskPanel() {
     players[0]
   );
   const items = [
-    ["Injury Risk", `${highestRiskPlayer.injuryRisk}%`, highestRiskPlayer.injuryRisk > 30 ? "red" : "yellow"],
-    ["Fatigue Risk", `${highestRiskPlayer.fatigueRisk}%`, highestRiskPlayer.fatigueRisk > 35 ? "red" : "yellow"],
-    ["Overtraining Risk", `${highestRiskPlayer.overtrainingRisk}%`, highestRiskPlayer.overtrainingRisk > 30 ? "yellow" : "green"],
-    ["Availability Prediction", `${highestRiskPlayer.availability}%`, highestRiskPlayer.availability > 80 ? "green" : "yellow"],
-    ["Recovery Score", `${highestRiskPlayer.readiness}%`, highestRiskPlayer.readiness > 78 ? "green" : "yellow"],
-    ["Recommended Training Load", `${Math.round(highestRiskPlayer.acuteLoad * RECOMMENDED_LOAD_REDUCTION_FACTOR)} AU`, "yellow"],
+    ["Sakatlık Riski", `${highestRiskPlayer.injuryRisk}%`, highestRiskPlayer.injuryRisk > 30 ? "red" : "yellow"],
+    ["Yorgunluk Riski", `${highestRiskPlayer.fatigueRisk}%`, highestRiskPlayer.fatigueRisk > 35 ? "red" : "yellow"],
+    ["Aşırı Antrenman Riski", `${highestRiskPlayer.overtrainingRisk}%`, highestRiskPlayer.overtrainingRisk > 30 ? "yellow" : "green"],
+    ["Uygunluk Tahmini", `${highestRiskPlayer.availability}%`, highestRiskPlayer.availability > 80 ? "green" : "yellow"],
+    ["Toparlanma Skoru", `${highestRiskPlayer.readiness}%`, highestRiskPlayer.readiness > 78 ? "green" : "yellow"],
+    ["Önerilen Antrenman Yükü", `${Math.round(highestRiskPlayer.acuteLoad * RECOMMENDED_LOAD_REDUCTION_FACTOR)} AU`, "yellow"],
   ];
+
+  const riskColorLabels = { red: "YÜKSEK", yellow: "ORTA", green: "DÜŞÜK" };
 
   items.forEach(([name, value, color]) => {
     const article = document.createElement("article");
     article.className = "glass";
-    article.innerHTML = `<h4>${name}</h4><p>${value}</p><span class="badge ${color}">${color.toUpperCase()}</span>`;
+    article.innerHTML = `<h4>${name}</h4><p>${value}</p><span class="badge ${color}">${riskColorLabels[color]}</span>`;
     riskPanel.appendChild(article);
   });
 
   const explain = document.createElement("article");
   explain.className = "glass";
-  explain.innerHTML = `<h4>Explainability</h4>
-  <p>AI confidence: 92%</p>
-  <p>Top contributing variables: Sleep, Acute Load, Chronic Load, HRV, Previous Injury</p>`;
+  explain.innerHTML = `<h4>Açıklanabilirlik</h4>
+  <p>YZ güveni: %92</p>
+  <p>En yüksek katkı sağlayan değişkenler: Uyku, Akut Yük, Kronik Yük, KHA, Önceki Sakatlık</p>`;
   riskPanel.appendChild(explain);
 }
 
@@ -419,7 +421,7 @@ function renderReports() {
   const reports = document.getElementById("report-cards");
   reportTitles.forEach((title) => {
     const card = document.createElement("article");
-    card.innerHTML = `<h4>${title}</h4><p>Interactive PDF-style export with executive summary and AI insights.</p><button>Generate</button>`;
+    card.innerHTML = `<h4>${title}</h4><p>Yönetici özeti ve YZ içgörüleri ile interaktif PDF tarzı dışa aktarım.</p><button>Oluştur</button>`;
     reports.appendChild(card);
   });
 }
