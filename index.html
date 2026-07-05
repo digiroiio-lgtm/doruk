@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DORUK AI | Yapay Zekâ Destekli Sporcu Performans Platformu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar glass">
+    <div class="brand">
+      <span class="logo-dot"></span>
+      <div>
+        <h1>DORUK AI</h1>
+        <p>Yapay Zekâ Destekli Sporcu Performans Platformu</p>
+      </div>
+    </div>
+    <nav id="top-nav" class="top-nav" aria-label="Primary navigation"></nav>
+  </header>
+
+  <main>
+    <section class="page active" id="home">
+      <div class="bg-word" aria-hidden="true">DORUK</div>
+      <div class="hero glass">
+        <div>
+          <p class="eyebrow" lang="tr">Türkiye'nin Yapay Zekâ Destekli Sporcu Performans Platformu</p>
+          <h2>İnsan Performansı.<br><span class="text-accent">Yapay Zekâ ile Şekillendi.</span></h2>
+          <p class="hero-tagline">Veriyi Avantaja Dönüştür.</p>
+          <div class="actions">
+            <button class="primary">Demo Talep Et</button>
+            <button class="secondary">Platformu İncele</button>
+          </div>
+        </div>
+        <div class="hero-visual glass" aria-hidden="true">
+          <div class="signal-grid"></div>
+          <svg class="perf-radar" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="rg" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="rgba(204,255,47,0.12)"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </radialGradient>
+            </defs>
+            <circle cx="110" cy="110" r="98" fill="url(#rg)" stroke="rgba(204,255,47,0.06)" stroke-width="1"/>
+            <circle cx="110" cy="110" r="75" stroke="rgba(204,255,47,0.10)" stroke-width="1" fill="none"/>
+            <circle cx="110" cy="110" r="52" stroke="rgba(204,255,47,0.15)" stroke-width="1" fill="none"/>
+            <circle cx="110" cy="110" r="29" stroke="rgba(204,255,47,0.22)" stroke-width="1" fill="none"/>
+            <line x1="110" y1="12" x2="110" y2="208" stroke="rgba(204,255,47,0.07)" stroke-width="0.5"/>
+            <line x1="12" y1="110" x2="208" y2="110" stroke="rgba(204,255,47,0.07)" stroke-width="0.5"/>
+            <line x1="40" y1="40" x2="180" y2="180" stroke="rgba(204,255,47,0.05)" stroke-width="0.5"/>
+            <line x1="180" y1="40" x2="40" y2="180" stroke="rgba(204,255,47,0.05)" stroke-width="0.5"/>
+            <polygon points="110,36 170,74 167,158 70,164 44,88 80,38" fill="rgba(204,255,47,0.09)" stroke="rgba(204,255,47,0.5)" stroke-width="1.5"/>
+            <line class="radar-sweep-line" x1="110" y1="110" x2="110" y2="14" stroke="rgba(204,255,47,0.75)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <svg class="runner-svg" viewBox="0 0 130 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="athleteGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <g filter="url(#athleteGlow)">
+              <ellipse cx="88" cy="22" rx="15" ry="15" fill="rgba(204,255,47,0.9)"/>
+              <path d="M 85 37 Q 76 60 65 92" stroke="rgba(204,255,47,0.9)" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <path d="M 78 55 L 50 40 L 38 54" stroke="rgba(204,255,47,0.9)" stroke-width="7" stroke-linecap="round" fill="none"/>
+              <path d="M 78 60 L 100 78 L 110 66" stroke="rgba(204,255,47,0.7)" stroke-width="6" stroke-linecap="round" fill="none"/>
+              <path d="M 65 92 Q 55 130 38 162 L 28 168" stroke="rgba(204,255,47,0.9)" stroke-width="9" stroke-linecap="round" fill="none"/>
+              <path d="M 65 92 Q 78 125 88 162 L 82 170" stroke="rgba(204,255,47,0.7)" stroke-width="8" stroke-linecap="round" fill="none"/>
+            </g>
+          </svg>
+          <div class="hud-tag hud-1"><span class="hud-dot"></span>HRV 68ms ↑</div>
+          <div class="hud-tag hud-2"><span class="hud-dot ok"></span>32.4 km/h</div>
+          <div class="hud-tag hud-3"><span class="hud-dot"></span>LOAD 724</div>
+          <div class="athlete-focus">Elit Odak</div>
+        </div>
+        <div class="hero-kpis">
+          <article class="glass"><h3>Takım Hazırlığı</h3><strong id="hero-readiness">89%</strong></article>
+          <article class="glass"><h3>Sakatlık Riski</h3><strong id="hero-risk">12%</strong></article>
+          <article class="glass"><h3>Uygunluk</h3><strong id="hero-availability">92%</strong></article>
+        </div>
+      </div>
+
+      <div class="metrics-ribbon glass">
+        <div class="metric-item"><strong>500+</strong><span>Sporcu</span></div>
+        <div class="metric-sep"></div>
+        <div class="metric-item"><strong>25+</strong><span>Kulüp</span></div>
+        <div class="metric-sep"></div>
+        <div class="metric-item"><strong>99.9%</strong><span>Uptime</span></div>
+        <div class="metric-sep"></div>
+        <div class="metric-item"><strong>7/24</strong><span>İzleme</span></div>
+      </div>
+
+      <section class="trusted glass">
+        <h3>Güvenilenler</h3>
+        <div class="logo-grid">
+          <span>Profesyonel Futbol Kulüpleri</span>
+          <span>Basketbol</span>
+          <span>Voleybol</span>
+          <span>Milli Takımlar</span>
+          <span>TSK</span>
+          <span>Polis Teşkilatı</span>
+          <span>İtfaiye</span>
+          <span>Kurumsal Yüksek Performans</span>
+        </div>
+      </section>
+
+      <section class="architecture glass">
+        <h3>Platform Mimarisi</h3>
+        <div class="flow" id="architecture-flow"></div>
+      </section>
+
+      <section class="architecture glass">
+        <h3>DORUK Teknoloji Mimarisi</h3>
+        <div class="roadmap-grid" id="company-architecture"></div>
+      </section>
+
+      <section class="cta glass">
+        <p>"Bu bir kontrol paneli değil. Bu sizin rekabet avantajı motorunuzdur."</p>
+        <button class="primary">Demo Rezervasyonu</button>
+      </section>
+
+      <section class="roadmap glass">
+        <h3>Gelecek Yol Haritası</h3>
+        <div class="roadmap-grid">
+          <article><h4>Faz 1</h4><p>Elit Futbol</p></article>
+          <article><h4>Faz 2</h4><p>Basketbol · Voleybol · Olimpik Sporlar</p></article>
+          <article><h4>Faz 3</h4><p>TSK · Polis · İtfaiye · Kurumsal Sağlık · Mesleki Performans</p></article>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="dashboard">
+      <div class="layout">
+        <aside class="sidebar glass" id="sidebar"></aside>
+        <div class="content">
+          <div class="kpi-grid" id="kpi-grid"></div>
+          <div class="charts-grid">
+            <article class="glass"><h3>Haftalık Yük</h3><canvas id="weekly-load" width="500" height="220"></canvas></article>
+            <article class="glass"><h3>Toparlanma Eğilimi</h3><canvas id="recovery-trend" width="500" height="220"></canvas></article>
+            <article class="glass"><h3>Risk Isı Haritası</h3><div id="risk-heatmap" class="heatmap"></div></article>
+            <article class="glass"><h3>Antrenman Dağılımı</h3><canvas id="training-distribution" width="500" height="220"></canvas></article>
+          </div>
+          <article class="glass"><h3>Günün Uyarıları</h3><ul id="alerts"></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="players">
+      <article class="glass">
+        <h3>Sporcu Profili</h3>
+        <label for="player-select">Sporcu Seç</label>
+        <select id="player-select"></select>
+        <div id="player-profile" class="player-grid"></div>
+      </article>
+    </section>
+
+    <section class="page" id="training">
+      <article class="glass">
+        <h3>Haftalık Planlama</h3>
+        <p>Seansları günler arasında sürükleyin. YZ önerileri vurgulanmıştır.</p>
+        <div id="planner" class="planner"></div>
+      </article>
+    </section>
+
+    <section class="page" id="medical">
+      <article class="glass">
+        <h3>Medikal Kontrol Paneli</h3>
+        <div class="cards" id="medical-cards"></div>
+      </article>
+    </section>
+
+    <section class="page" id="ai-predictions">
+      <article class="glass">
+        <h3>YZ Motoru</h3>
+        <div class="cards" id="ai-engine-cards"></div>
+      </article>
+      <article class="glass">
+        <h3>YZ Risk Ekranı</h3>
+        <div class="risk-panel" id="risk-panel"></div>
+      </article>
+    </section>
+
+    <section class="page" id="reports">
+      <article class="glass">
+        <h3>Raporlar</h3>
+        <div class="cards" id="report-cards"></div>
+      </article>
+    </section>
+
+    <section class="page" id="settings">
+      <article class="glass settings">
+        <h3>Ayarlar</h3>
+        <label><span>Kuruluş</span><input value="DORUK AI Demo Kulübü" /></label>
+        <label><span>Varsayılan Dil</span><select><option>Türkçe</option><option>English</option></select></label>
+        <label><span>Bildirim Politikası</span><select><option>Gerçek zamanlı medikal uyarılar</option><option>Günlük özet</option></select></label>
+        <label><span>Veri Kaynakları</span><input value="Garmin, WHOOP, Polar, Apple Health, Google Fit" /></label>
+        <button class="primary">Yapılandırmayı Kaydet</button>
+      </article>
+      <article class="glass">
+        <h3>Teknik Kadro Paneli</h3>
+        <div class="roles" id="roles"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
