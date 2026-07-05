@@ -67,6 +67,7 @@ const LOAD_DIFF_DIVISOR = 18;
 const RECOVERY_DECIMAL_FACTOR = 10;
 // AI recommendation keeps 85% of current acute load for high-risk profiles.
 const RECOMMENDED_LOAD_REDUCTION_FACTOR = 0.85;
+const LOAD_REDUCTION_PERCENT = Math.round((1 - RECOMMENDED_LOAD_REDUCTION_FACTOR) * 100);
 // Injury-risk threshold above which recovery-first recommendations are shown.
 const RECOVERY_RECOMMENDATION_THRESHOLD = 28;
 
@@ -230,13 +231,12 @@ function renderHeatmap() {
 
 function renderAlerts() {
   const alerts = document.getElementById("alerts");
-  const loadReductionPercent = Math.round((1 - RECOMMENDED_LOAD_REDUCTION_FACTOR) * 100);
   players
     .filter((player) => player.injuryRisk > 30)
     .slice(0, 5)
     .forEach((player) => {
       const item = document.createElement("li");
-      item.textContent = `${player.name}: high fatigue (${player.fatigueRisk}%) — recommended load reduction ${loadReductionPercent}%.`;
+      item.textContent = `${player.name}: high fatigue (${player.fatigueRisk}%) — recommended load reduction ${LOAD_REDUCTION_PERCENT}%.`;
       alerts.appendChild(item);
     });
 }
@@ -349,18 +349,18 @@ function renderAICards() {
 
 function renderRiskPanel() {
   const riskPanel = document.getElementById("risk-panel");
-  const player = players.reduce(
+  const highestRiskPlayer = players.reduce(
     (highestRiskPlayer, currentPlayer) =>
       currentPlayer.injuryRisk > highestRiskPlayer.injuryRisk ? currentPlayer : highestRiskPlayer,
     players[0]
   );
   const items = [
-    ["Injury Risk", `${player.injuryRisk}%`, player.injuryRisk > 30 ? "red" : "yellow"],
-    ["Fatigue Risk", `${player.fatigueRisk}%`, player.fatigueRisk > 35 ? "red" : "yellow"],
-    ["Overtraining Risk", `${player.overtrainingRisk}%`, player.overtrainingRisk > 30 ? "yellow" : "green"],
-    ["Availability Prediction", `${player.availability}%`, player.availability > 80 ? "green" : "yellow"],
-    ["Recovery Score", `${player.readiness}%`, player.readiness > 78 ? "green" : "yellow"],
-    ["Recommended Training Load", `${Math.round(player.acuteLoad * RECOMMENDED_LOAD_REDUCTION_FACTOR)} AU`, "yellow"],
+    ["Injury Risk", `${highestRiskPlayer.injuryRisk}%`, highestRiskPlayer.injuryRisk > 30 ? "red" : "yellow"],
+    ["Fatigue Risk", `${highestRiskPlayer.fatigueRisk}%`, highestRiskPlayer.fatigueRisk > 35 ? "red" : "yellow"],
+    ["Overtraining Risk", `${highestRiskPlayer.overtrainingRisk}%`, highestRiskPlayer.overtrainingRisk > 30 ? "yellow" : "green"],
+    ["Availability Prediction", `${highestRiskPlayer.availability}%`, highestRiskPlayer.availability > 80 ? "green" : "yellow"],
+    ["Recovery Score", `${highestRiskPlayer.readiness}%`, highestRiskPlayer.readiness > 78 ? "green" : "yellow"],
+    ["Recommended Training Load", `${Math.round(highestRiskPlayer.acuteLoad * RECOMMENDED_LOAD_REDUCTION_FACTOR)} AU`, "yellow"],
   ];
 
   items.forEach(([name, value, color]) => {
